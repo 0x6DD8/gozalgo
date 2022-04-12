@@ -1,4 +1,5 @@
 build:
+	make clean
 	mkdir bin
 	go build -o ./bin/gozalgo
 
@@ -15,4 +16,4 @@ clean:
 	rm -rf ./bin
 
 run:
-	go run .
+	go run . 
