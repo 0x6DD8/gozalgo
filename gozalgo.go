@@ -20,24 +20,21 @@ func zalgo() (s string) {
 }
 
 func zalgoText(text string, curseCount int) {
-
-	tmpText := text[0:1]
+	var zalgoedText strings.Builder
+	zalgoedText.WriteString(text[0:1])
 
 	for i := 0; i < len([]rune(text)); i++ {
 
-		tmpText = text[i : i+1]
-
-		var tmp string
+		var textForZalgo strings.Builder
+		textForZalgo.WriteString(text[i : i+1])
 
 		for j := 0; j < curseCount; j++ {
-			tmp += zalgo()
+			textForZalgo.WriteString(zalgo())
 		}
 
-		tmpText = text[i:i+1] + tmp
-
-		fmt.Printf(tmpText)
+		fmt.Print(textForZalgo.String())
 	}
-	fmt.Printf("\n")
+	fmt.Println()
 }
 
 func helpText() {
